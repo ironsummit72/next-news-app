@@ -1,19 +1,55 @@
 import "./globals.css"; // Import your global CSS (if any)
 import "./novacept.css";
-import { Metadata } from "next";
+
 import Script from 'next/script'
 import { IBM_Plex_Mono } from 'next/font/google'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SideNavBar from "@/components/SideNavBar";
 import { SideBarContextProvider } from "@/context/SideBarContext";
+import type { Metadata, Viewport } from "next";
+const APP_NAME = "BBC NEWS";
+const APP_DEFAULT_TITLE = "BBC NEWS APP";
+const APP_TITLE_TEMPLATE = "BBC | %s";
+const APP_DESCRIPTION = "Visit BBC for trusted reporting on the latest world and US news, sports, business, climate, innovation, culture and much more.";
 
 export const metadata: Metadata = {
+  applicationName: APP_NAME,
   title: {
-    default: 'BBC',
-    template: 'BBC | %s '
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
   },
-  description: "Visit BBC for trusted reporting on the latest world and US news, sports, business, climate, innovation, culture and much more.",
+  description: APP_DESCRIPTION,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: APP_DEFAULT_TITLE,
+    // startUpImage: [],
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    siteName: APP_NAME,
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+};
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 const IBMPlex = IBM_Plex_Mono({ subsets: ["latin"], weight: '500' });
 
