@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 function SideNavBar() {
-    const { isSideBarOpen } = useSideBar()
+    const { isSideBarOpen,toggleSideBar } = useSideBar()
     const [value, setValue] = useState<string>('')
     const [isOpenSports, setIsOpenSports] = useState<boolean>(false)
     const [isOpenBusiness, setIsOpenBusiness] = useState<boolean>(false)
@@ -15,7 +15,9 @@ function SideNavBar() {
         <div className={isSideBarOpen ? 'wrapper z-3 collapse.show' : 'collapse'}>
             <aside className='position-fixed h-screen w-sm-50 w-md-25 w-lg-25 bg-white z-3 '>
                 <ul className='d-flex flex-column justify-content-center  w-100 gap-4 list-unstyled mx-2 '>
-                    <div title='Search news,topics and more' className='d-flex gap-2 w-100 my-4 '><input className='border-3' value={value} onChange={(e) => { setValue(e.target.value) }} type="text" placeholder='Search news,topics and more' /><button onClick={() => { router.push(`/search?q=${value}`) }} className="btn bg-dark "><Search color='white' /></button></div>
+                    <div title='Search news,topics and more' className='d-flex gap-2 w-100 my-4 '><input className='border-3' value={value} onChange={(e) => { setValue(e.target.value) }} type="text" placeholder='Search news,topics and more' /><button onClick={() => { router.push(`/search?q=${value}`) 
+                        toggleSideBar()
+                    }} className="btn bg-dark "><Search color='white' /></button></div>
                     <li><Link className='text-decoration-none text-dark p-2' href={'/'}>Home</Link></li>
                     <li>
                         <button
