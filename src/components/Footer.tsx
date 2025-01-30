@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 function Footer() {
     return (
-        <div className='footer border-top border-2  border-black'>
+        <div className='footer border-top border-2  border-black mt-5'>
             <div className="container">
                 <Link href={'/'}>
                  <Image alt='brand logo' src='/bbc.svg' height={80} width={80} />
