@@ -2,6 +2,7 @@
 import NewsCard from '@/components/NewsCard'
 import { Articles } from '@/Types/NewsApi'
 
+
 import { use,useEffect, useState } from 'react'
 
 type Props = {
@@ -14,7 +15,12 @@ export default function Sports({ params }: Props) {
     async function getData() {
       try {
         const response = await fetch(
-          `/api/sport/${sport}`
+          `/api/sport/${sport}`, 
+        {
+          headers:{
+            'X-news-app':'fromapp'
+          }
+        }
         );
         const apidata = await response.json();
         setData(apidata.articles || []);
