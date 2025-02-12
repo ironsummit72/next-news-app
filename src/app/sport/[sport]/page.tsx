@@ -14,13 +14,9 @@ export default function Sports({ params }: Props) {
     async function getData() {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=${sport}&language=en&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+          `/api/sport/${sport}`
         );
         const apidata = await response.json();
-        
-        console.log("API Data:", apidata);
-
-      
         setData(apidata.articles || []);
       } catch (error) {
         console.error("Error fetching news:", error);
