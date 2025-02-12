@@ -11,7 +11,7 @@ const {toggleSideBar}=useSideBar()
   const isActive=(path:string)=> pathname===path;
   return (
     <div className='sticky-top'>
-        <button className='float-start p-2 no-border my-3 mx-2' onClick={toggleSideBar}><MenuIcon/></button>
+        <button title='menu' className='float-start p-2 no-border my-3 mx-2' onClick={toggleSideBar}><MenuIcon/></button>
       <header title='British Broadcasting Corporation' className='header   w-full bg-light flex  h-166px '>
         <Link href={'/'}>
           <Image alt='brand logo' src='/bbc.svg' height={80} width={80} />
